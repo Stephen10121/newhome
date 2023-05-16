@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { page } from "$app/stores";
+	import { onDestroy } from "svelte";
 	import Scene from "../components/Scene.svelte";
+	import { scrollPositionStore } from "../function/store";
 
     let main: HTMLDivElement;
     const scrollToTop = () => main.scrollTo(0, 0);
@@ -12,10 +14,15 @@
 	}
 
     let scrollPosition = 0;
+    const scrollPositionStoreUnsubscribe = scrollPositionStore.subscribe((value) => scrollPosition = value);
 
     function scroll(event: any) {
-        scrollPosition = event.target.scrollTop as number;
+        scrollPositionStore.set(event.target.scrollTop as number);
     }
+
+    onDestroy(() => {
+        scrollPositionStoreUnsubscribe();
+    });
 </script>
 
 <header>

@@ -2,7 +2,6 @@
 	import { onDestroy } from "svelte";
     import ContactCard from "../components/ContactCard.svelte";
 	import { showContactStore } from "../function/store";
-	import SectionIntro from "../components/SectionIntro.svelte";
 	import Language from "../components/Language.svelte";
 
     import cssIcon from "../assets/css.png";
@@ -36,7 +35,7 @@
     <h1 class="desc">The <span class="better">languages</span> I use:</h1>
     <div class="icons">
         <Language title="Arduino" src={arduinoIcon}/>
-        <Language title="Golang" src={goicon}/>
+        <Language golang title="Golang" src={goicon}/>
         <Language title="TypeScript" src={tsicon}/>
         <Language title="Python" src={pythonicon}/>
         <Language title="JavaScript" src={jsicon}/>
@@ -78,8 +77,10 @@
     }
 
     .desc {
-        font-size: clamp(2rem, -1.5rem + 8vw, 4rem);
+        font-size: clamp(1.25rem, -1.5rem + 8vw, 4rem);
         width: 90%;
+        background-color: #000000a9;
+        line-height: 150%;
         /* text-shadow: 2px 4px 3px rgba(0,0,0,0.3); */
         /* text-shadow: 2px 4px 3px rgba(0,0,0,0.3), 6px 6px 0px rgba(0,0,0,0.2); */
     }

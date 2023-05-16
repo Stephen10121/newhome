@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ContactCard from "../../components/ContactCard.svelte";
+    
     export let data;
 </script>
 

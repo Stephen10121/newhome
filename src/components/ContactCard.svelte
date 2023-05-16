@@ -1,7 +1,5 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
     import { fade } from 'svelte/transition';
-    import closeButton from "../assets/close-button.svg";
 	import { newSchema } from "../function/contactPageSchema";
     import { superForm } from "sveltekit-superforms/client";
     import { ConfettiExplosion } from 'svelte-confetti-explosion';
@@ -27,8 +25,6 @@
             submitted = submitted+1;
         },
     });
-
-    const dispatch = createEventDispatcher();
 </script>
 
 <form method="POST" use:enhance transition:fade={{ duration: 150 }}>
@@ -38,12 +34,24 @@
         </div>
     {/if}
     <h1>Give Me A Holler</h1>
-    <button class="close" type="button" on:click={() => dispatch("close")} title="Close Contact Popup">
-        <img src={closeButton} alt="Close Contact">
-    </button>
-    <input name="name" type="text" placeholder="Name" bind:value={$form.name} />
-    <input name="contactMethod" type="email" placeholder="Email" bind:value={$form.contactMethod}/>
-    <textarea name="aboutContact" id="description" placeholder="Description" bind:value={$form.aboutContact}></textarea>
+    <label>
+        {#if $errors.name}
+            <p class="errorP">{$errors.name}</p>
+        {/if}
+        <input name="name" type="text" placeholder="Name" bind:value={$form.name} />
+    </label>
+    <label>
+        {#if $errors.contactMethod}
+            <p class="errorP">{$errors.contactMethod}</p>
+        {/if}
+        <input name="contactMethod" type="email" placeholder="Email" bind:value={$form.contactMethod}/>
+    </label>
+    <label>
+        {#if $errors.aboutContact}
+            <p class="errorP">{$errors.aboutContact}</p>
+        {/if}
+        <textarea name="aboutContact" id="description" placeholder="Description" bind:value={$form.aboutContact}></textarea>
+    </label>
     <button title="Submit Form" class="submit">Submit</button>
 </form>
 
@@ -77,42 +85,38 @@
 
     form h1 {
         font-family: "Poppins", sans-serif;
-        color: #000000;
+        color: #ffffff;
         font-weight: 600;
         margin-bottom: 20px;
         font-size: 2rem;
     }
 
-    .close {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 35px;
-        height: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: none;
-        border: none;
-        cursor: pointer;
+    .errorP {
+        font-family: "Poppins", sans-serif;
+        color: #fcacac;
+        font-weight: 600;
+        font-size: 0.9rem;
     }
 
-    .close img {
-        width: 20px;
-        height: 20px;
+    label {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
     }
 
     input,
     textarea {
         width: 100%;
         font-family: "Poppins", sans-serif;
-        color: #000000;
+        color: #ffffff;
         font-weight: 500;
         padding: 10px 5px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        border: 0px solid #000000;
-        border-radius: 5px;
-        background-color: #ffffffaf;
+        border: none;
+        border-bottom: 5px solid #dfdfdf;
+        /* border-radius: 5px; */
+        background-color: #61616193;
     }
 
     input:focus,
@@ -123,13 +127,13 @@
     .submit {
         width: 100%;
         font-family: "Poppins", sans-serif !important;
-        color: #000000;
+        color: #ffffff;
         font-weight: 600;
         padding: 10px 5px;
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-        border: none;
-        background-color: #ffffffaf;
-        border-radius: 5px;
+        border: 2px solid #ffffff;
+        background: none;
+        /* border-radius: 5px; */
         cursor: pointer;
     }
 
