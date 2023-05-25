@@ -60,6 +60,7 @@
     main {
         width: 100%;
         height: calc(100% - 70px);
+        position: relative;
     }
 
     h1 {
@@ -108,6 +109,7 @@
         display: flex;
         flex-direction: column;
         row-gap: 200px;
+        position: relative;
     }
 
     .main-box div::-webkit-scrollbar {

@@ -2,7 +2,11 @@
 	import { onDestroy } from "svelte";
 	import { showContactStore } from "../../function/store.js";
 	import ContactCard from "../../components/ContactCard.svelte";
-	import SectionIntro from "../../components/SectionIntro.svelte";
+	import Footer from "../../components/Footer.svelte";
+    import authImage from "../../assets/dashboardauth.png";
+    import filesImage from "../../assets/filespicture.png";
+    import fenceImage from "../../assets/fencecompany.png";
+	import ProjectTile from "../../components/ProjectTile.svelte";
 
     let showContact = false;
     const showContactStoreUnsubscribe = showContactStore.subscribe((value) => showContact = value);
@@ -19,11 +23,36 @@
 <section>
     <h1>Projects</h1>
 </section>
-<section id="about">
-    <h1>Project Section</h1>
+<section>
+    <ProjectTile
+        projectImage={authImage}
+        name="GruzAuth"
+        link="https://auth.gruzservices.com"
+        description="Authentication service that takes the load away from developers."
+        tags={["Svelte", "TypeScript", "Socket.io", "TypeORM"]}
+    />
 </section>
-<SectionIntro />
-<SectionIntro />
+<section>
+    <ProjectTile
+        projectImage={filesImage}
+        name="GCloud"
+        link="https://files.gruzservices.com"
+        description="Google drive knockoff."
+        tags={["Svelte", "JavaScript", "Axios", "Express"]}
+    />
+</section>
+<section>
+    <ProjectTile
+        projectImage={fenceImage}
+        name="Local Fence Co"
+        link="https://thelocalfenceco.com"
+        description="Contract Job. Fence company website."
+        tags={["SvelteKit", "TypeScript", "Prisma", "Sqlite"]}
+    />
+</section>
+<!-- <SectionIntro /> -->
+<!-- <SectionIntro /> -->
+<Footer top="400%"/>
 <!-- <section>
     <img src={image} alt="Cool logo" />
     <h1>Welcome to SvelteKit</h1>
@@ -38,6 +67,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+        padding: 0 10px;
         /* background-color: red; */
     }
 

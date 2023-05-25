@@ -1,6 +1,7 @@
 <script lang="ts">
     import earthPicture from "../assets/earth2.png";
     import spaceSuit from "../assets/spacesuit.png";
+	import SpaceStation from "./SpaceStation.svelte";
 	import TwinklyStars from "./TwinklyStars.svelte";
 
     let earthSection: HTMLElement;
