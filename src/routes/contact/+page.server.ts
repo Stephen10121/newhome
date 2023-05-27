@@ -78,6 +78,8 @@ export const actions = {
 
         console.log({form});
 
+        event.setHeaders({'Access-Control-Allow-Origin': `*`});
+        
         return { form }
     }
 }
