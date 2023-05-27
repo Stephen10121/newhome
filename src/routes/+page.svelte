@@ -112,6 +112,7 @@ background: linear-gradient(0deg, rgba(255,255,255,0.020045518207282953) 0%, rgb
         font-weight: 600;
         font-size: clamp(0.75rem, -1.1rem + 8vw, 1.1rem);
         margin-top: 20px;
+        text-align: center;
     }
 
     .darker {
