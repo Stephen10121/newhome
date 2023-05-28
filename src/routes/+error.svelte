@@ -1,15 +1,18 @@
 <script lang="ts">
     import { page } from '$app/stores';
     import spaceSuit from "../assets/spacesuit.png";
+	import Layout from './(app)/+layout.svelte';
 </script>
 
-<section>
-    <h1>{$page.status} | {$page.error?.message}</h1>
-    <a href="/">Go Home</a>
-    <section class="img">
-        <img src={spaceSuit} alt="Earth" />
+<Layout>
+    <section>
+        <h1>{$page.status} | {$page.error?.message}</h1>
+        <a href="/">Go Home</a>
+        <section class="img">
+            <img src={spaceSuit} alt="Earth" />
+        </section>
     </section>
-</section>
+</Layout>
 <style>
     section {
         min-height: 100%;
