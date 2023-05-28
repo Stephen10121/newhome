@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onDestroy } from "svelte";
-    import authImage from "../../assets/dashboardauth.png";
-    import filesImage from "../../assets/filespicture.png";
-    import fenceImage from "../../assets/fencecompany.png";
+    import authImage from "../../../assets/dashboardauth.png";
+    import filesImage from "../../../assets/filespicture.png";
+    import fenceImage from "../../../assets/fencecompany.png";
 	import { showContactStore } from "../../../function/store";
 	import ContactCard from "../../../components/ContactCard.svelte";
 	import ProjectTile from "../../../components/ProjectTile.svelte";
