@@ -32,7 +32,6 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-node": "^1.2.4",
-		"pocketbase": "^0.15.0",
 		"semantisvelte": "^0.0.1",
 		"svelte-confetti-explosion": "^0.4.0"
 	}
