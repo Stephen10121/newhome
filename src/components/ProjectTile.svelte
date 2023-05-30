@@ -100,7 +100,8 @@
         cursor: pointer;
     }
 
-    .buton:focus + .overflow {
+    .buton:focus + .overflow,
+    .overflow:hover {
         --opacity-set-level: 1;
     }
 
