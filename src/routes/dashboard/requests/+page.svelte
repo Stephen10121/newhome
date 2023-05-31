@@ -1,13 +1,18 @@
 <script lang="ts">
-	import RequestTile from '../../../components/RequestTile.svelte';
+	import Notification from '../../../components/Notification.svelte';
+    import RequestTile from '../../../components/RequestTile.svelte';
 
     export let data;
+    export let form;
 </script>
 
 <section>
+    {#if form?.message}
+        <Notification text={form.message} />
+    {/if}
     {#if data.requests.length}
         {#each data.requests.reverse() as request}
-            <RequestTile email={request.email} name={request.name} about={request.about} when={request.time}/>
+            <RequestTile email={request.email} name={request.name} about={request.about} when={request.time} id={request.id} />
         {/each}
     {:else}
         <p class="empty">No Requests</p>
