@@ -1,7 +1,7 @@
 import { fail } from "@sveltejs/kit";
 import { superValidate } from "sveltekit-superforms/server";
 import { newSchema } from "../../../function/contactPageSchema";
-import { addRequest } from "../../../function/serverData";
+import { prisma } from "$lib/server/prisma";
 
 export async function load(event) {
     const form = await superValidate(event, newSchema);
@@ -15,32 +15,29 @@ export async function load(event) {
 
 export const actions = {
     default: async (event) => {
+        event.setHeaders({'Access-Control-Allow-Origin': `*`});
         const form = await superValidate(event, newSchema);
 
         if (!form.valid) {
             return fail(400, { form });
         }
 
-        const html = `
-            <h1>${form.data.name}</h1>
-            <h2>${form.data.contactMethod}</h2>
-            <p>${form.data.aboutContact}</p>
-        `;
-        console.log(html);
-
-        console.log({form});
-
         const d = new Date(); 
         const datetime = `${d.getDate()}/${(d.getMonth()+1)}/${d.getFullYear()}. ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
-
-        addRequest({
-            name: form.data.name,
-            about: form.data.aboutContact,
-            email: form.data.contactMethod,
-            when: datetime
-        });
-
-        event.setHeaders({'Access-Control-Allow-Origin': `*`});
+        
+        try {
+            await prisma.contactRequest.create({
+                data: {
+                    name: form.data.name,
+                    email: form.data.contactMethod,
+                    about: form.data.aboutContact,
+                    time: datetime
+                }
+            });
+        } catch (err) {
+            console.log(err)
+            return fail(400, { form });
+        }
         
         return { form }
     }
