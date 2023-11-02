@@ -5,6 +5,7 @@
 	import Scene from "../../components/Scene.svelte";
 
     let main: HTMLDivElement;
+    export let data;
     const scrollToTop = () => main.scrollTo(0, 0);
 
 	// onMount(scrollToTop);
@@ -20,13 +21,23 @@
         scrollPositionStore.set(event.target.scrollTop as number);
     }
 
+    let accentColors = ["#51b5cc", "#7700ff", "#ffc400", "#00ff2a"];
+    let currentAccent = data.accentColor;
+    function accentChange() {
+        currentAccent = currentAccent < accentColors.length-1 ? currentAccent+1 : 0;
+        const d = new Date();
+        d.setTime(d.getTime() + (1000*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = `accentColor=${currentAccent}; expires=${expires}; path=/;`;
+    }
+
     onDestroy(() => {
         scrollPositionStoreUnsubscribe();
     });
 </script>
 
 <header>
-    <h1>SG</h1>
+    <h1 on:mousedown={accentChange}>SG</h1>
     <nav>
         <ul>
             <li><a href="/">About</a></li>
@@ -39,7 +50,7 @@
 
 <Scene {scrollPosition} />
 
-<main>
+<main style="--accent-color: {accentColors[currentAccent]};">
     <section class="main-box">
         <div bind:this={main} on:scroll={scroll}>
             <slot />
@@ -58,8 +69,9 @@
     }
 
     main {
-        width: 100%;
-        height: calc(100% - 70px);
+        width: 100vw;
+        height: calc(100vh - 70px);
+        height: calc(100dvh - 70px);
         position: relative;
     }
 
@@ -68,6 +80,7 @@
         color: #F4FDFF;
         font-weight: 500;
         display: none;
+        cursor: pointer;
     }
 
     ul {
@@ -108,7 +121,7 @@
         scroll-behavior: smooth;
         display: flex;
         flex-direction: column;
-        row-gap: 200px;
+        /* row-gap: 200px; */
         position: relative;
     }
 
@@ -129,11 +142,11 @@
         cursor: pointer;
     } */
 
-    @media (min-width: 850px) {
+    /* @media (min-width: 850px) {
         .main-box div {
             padding: 100px;
         }
-    }
+    } */
 
     @media (min-width: 700px) {
         /* button {

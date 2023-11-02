@@ -12,6 +12,7 @@
 	import ContactCard from "../../components/ContactCard.svelte";
 	import Language from "../../components/Language.svelte";
 	import Footer from "../../components/Footer.svelte";
+	import TextTransition from "../../components/TextTransition.svelte";
     
 
     let showContact = false;
@@ -27,11 +28,15 @@
 {/if}
 
 <section>
-    <h1><span class="darker">Stephen</span> Gruzin</h1>
-    <p>Software Developer, Web Developer, Programmer</p>
+    <h1><span class="darker"><a href="https://www.linkedin.com/in/stephen-gruzin-6aba31204/" target="_blank">Stephen</a></span> Gruzin</h1>
+    <p><TextTransition textArray={["Software", "Web", "Frontend", "Backend", "Fullstack"]}/> Developer</p>
 </section>
 <section class="about">
-    <h2 class="desc"><br><br>I'm a freelance software <span class="better">developer</span> that specialises in systems <span class="better">programming</span>, creating backend/frontend applications, implementing best practices for higher seo <span class="better">ratings</span>. I also specialise in pcb design and have created multiple arduino robots.</h2>
+    <h2 class="desc">
+        Stephen Gruzin is a fullstack web developer who started programming at the age of 16. He has a knack for creating stunning and intuitive web applications that solve real-world problems.
+        Stephen is proficient in <span class="better">HTML</span>, <span class="better">CSS</span>, <span class="better">(Java/Type)Script</span>, and a variety of back-end programming languages.
+        He is always eager to learn new <span class="better">technologies</span> and improve his <span class="better">skills.</span> When he's not coding, you can find him exploring the outdoors or at church.
+    </h2>
 </section>
 <section class="langs">
     <h2 class="desc">The <span class="better">languages</span> I use:</h2>
@@ -48,13 +53,6 @@
 <section class="about">
     <h2 class="desc"><br><br>I enjoy playing <span class="better">volleyball</span>, as well as soccer, and eating thai food. I started programming at the age of 13 and I never looked back. I then proceeded to learn how program arduio boards, and started making usefull robots around the house.</h2>
 </section>
-<Footer top="400%"/>
-<!-- <section>
-    <img src={image} alt="Cool logo" />
-    <h1>Welcome to SvelteKit</h1>
-    <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-    <a href="/projects">Projects</a>
-</section> -->
 
 <style>
     section {
@@ -69,8 +67,9 @@
     }
 
     .about {
-        background: rgb(255,255,255);
-background: linear-gradient(0deg, rgba(255,255,255,0.020045518207282953) 0%, rgba(0,0,0,1) 27%, rgba(0,0,0,1) 55%, rgba(255,255,255,0) 100%);
+        background: rgb(0,0,0);
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
+        min-height: 100vh;
     }
 
     h1 {
@@ -116,11 +115,18 @@ background: linear-gradient(0deg, rgba(255,255,255,0.020045518207282953) 0%, rgb
     }
 
     .darker {
-        color: #51b5cc;
+        color: var(--accent-color);
+        transition: color 0.15s linear;
         text-decoration: underline;
     }
+
+    .darker a {
+        color: var(--accent-color);
+        transition: color 0.15s linear;
+    }
     .better {
-        color: #51b5cc;
+        color: var(--accent-color);
+        transition: color 0.15s linear;
     }
 
     .icons {
