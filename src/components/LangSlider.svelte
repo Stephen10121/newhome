@@ -5,6 +5,7 @@
     export let percentage: number | string;
     export let color: string;
     export let show = true;
+    export let delayMs = 0;
 </script>
 
 <div class="slider" title={title} on:mousedown={() => show =!show} style="--color:{color};">
@@ -12,7 +13,7 @@
         <img src={src} alt={title}>
     </a>
     <div class="sliderOutline">
-        <div class="sliderMovable" style="--percentage:{show ? percentage : "0"}%;" />
+        <div class="sliderMovable" style="--percentage:{show ? percentage : "0"}%;--delay:{delayMs}ms;" />
     </div>
 </div>
 
@@ -39,7 +40,7 @@
         width: var(--percentage);
         background-color: var(--color);
         border-radius: 10px;
-        transition: width 0.5s ease-in;
+        transition: width 0.5s ease-in var(--delay);
     }
 
     img {

@@ -24,12 +24,12 @@
 <section>
     <h2>Language Graph</h2>
     <LangSlider title="Javascript" src={javascriptIcon} link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" percentage={90} color="#f7df1e" {show} />
-    <LangSlider title="Arduino" src={arduinoIcon} link="https://www.arduino.cc/en/Guide" percentage={50} color="#199aa0" {show} />
-    <LangSlider title="TypeScript" src={typescriptIcon} link="https://www.typescriptlang.org" percentage={90} color="#3178c6" {show} />
-    <LangSlider title="Python" src={pythonIcon} link="https://www.python.org" percentage={95} color="#f2bb30" {show} />
-    <LangSlider title="CSS" src={cssIcon} link="https://www.w3schools.com/css/" percentage={70} color="#2196f3" {show} />
-    <LangSlider title="HTML" src={htmlIcon} link="https://www.w3schools.com/html/" percentage={95} color="#ff5722" {show} />
-    <LangSlider title="Go" src={golangIcon} link="https://go.dev/" percentage={70} color="#00acd7" {show} />
+    <LangSlider title="Arduino" src={arduinoIcon} link="https://www.arduino.cc/en/Guide" percentage={50} color="#199aa0" {show} delayMs={70} />
+    <LangSlider title="TypeScript" src={typescriptIcon} link="https://www.typescriptlang.org" percentage={90} color="#3178c6" {show} delayMs={140} />
+    <LangSlider title="Python" src={pythonIcon} link="https://www.python.org" percentage={95} color="#f2bb30" {show} delayMs={210} />
+    <LangSlider title="CSS" src={cssIcon} link="https://www.w3schools.com/css/" percentage={70} color="#2196f3" {show} delayMs={280} />
+    <LangSlider title="HTML" src={htmlIcon} link="https://www.w3schools.com/html/" percentage={95} color="#ff5722" {show} delayMs={350} />
+    <LangSlider title="Go" src={golangIcon} link="https://go.dev/" percentage={70} color="#00acd7" {show} delayMs={420} />
     <div class="observer" bind:this={observeTarget}></div>
 </section>
 
