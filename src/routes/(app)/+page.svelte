@@ -1,18 +1,9 @@
 <script lang="ts">
 	import { onDestroy } from "svelte";
-
-    import cssIcon from "../../assets/css.png";
-    import tsicon from "../../assets/typescript.png";
-    import jsicon from "../../assets/javascript.webp";
-    import goicon from "../../assets/golang.png";
-    import htmlicon from "../../assets/html.png";
-    import pythonicon from "../../assets/python.webp";
-    import arduinoIcon from "../../assets/aruino.webp";
 	import { showContactStore } from "../../function/store";
 	import ContactCard from "../../components/ContactCard.svelte";
-	import Language from "../../components/Language.svelte";
-	import Footer from "../../components/Footer.svelte";
 	import TextTransition from "../../components/TextTransition.svelte";
+	import LanguageGraph from "../../components/LanguageGraph.svelte";
     
 
     let showContact = false;
@@ -38,20 +29,8 @@
         He is always eager to learn new <span class="better">technologies</span> and improve his <span class="better">skills.</span> When he's not coding, you can find him exploring the outdoors or at church.
     </h2>
 </section>
-<section class="langs">
-    <h2 class="desc">The <span class="better">languages</span> I use:</h2>
-    <div class="icons">
-        <Language title="Arduino" src={arduinoIcon} link="https://www.arduino.cc/en/Guide"/>
-        <Language golang title="Golang" src={goicon} link="https://go.dev/"/>
-        <Language title="TypeScript" src={tsicon} link="https://www.typescriptlang.org/"/>
-        <Language title="Python" src={pythonicon} link="https://www.python.org/"/>
-        <Language title="JavaScript" src={jsicon} link="https://www.javascript.com/"/>
-        <Language title="HTML" src={htmlicon} link="https://www.w3schools.com/html/"/>
-        <Language title="CSS" src={cssIcon} link="https://www.w3schools.com/css/"/>
-    </div>
-</section>
-<section class="about">
-    <h2 class="desc"><br><br>I enjoy playing <span class="better">volleyball</span>, as well as soccer, and eating thai food. I started programming at the age of 13 and I never looked back. I then proceeded to learn how program arduio boards, and started making usefull robots around the house.</h2>
+<section>
+    <LanguageGraph />
 </section>
 
 <style>
@@ -93,16 +72,7 @@
                  0px 34px 30px rgba(0,0,0,0.1);
         font-size: clamp(1.25rem, -1.5rem + 8vw, 2.5rem);
         width: 90%;
-        /* background-color: #000000a9; */
         line-height: 1.3;
-        /* line-height: 26pt; */
-        /* text-shadow: 2px 4px 3px rgba(0,0,0,0.3); */
-        /* text-shadow: 2px 4px 3px rgba(0,0,0,0.3), 6px 6px 0px rgba(0,0,0,0.2); */
-        /* color: black; */
-    }
-
-    .langs {
-        gap: 40px;
     }
 
     p {
@@ -127,15 +97,5 @@
     .better {
         color: var(--accent-color);
         transition: color 0.15s linear;
-    }
-
-    .icons {
-        display: grid;
-        width: 100%;
-        column-gap: 10px;
-        row-gap: 10px;
-        grid-template-columns: repeat(auto-fill, 210px);
-        align-items: center;
-        justify-content: center;
     }
 </style>

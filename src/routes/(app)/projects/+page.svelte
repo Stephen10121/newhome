@@ -23,28 +23,29 @@
 <section>
     <h1>Projects</h1>
 </section>
-<section>
+<section class="merg">
     <ProjectTile
         projectImage={authImage}
         name="GruzAuth"
-        link="https://auth.gruzservices.com"
+        link="https://github.com/Stephen10121/authserverv3"
         description="Authentication service that takes the load away from developers."
         tags={["Svelte", "TypeScript", "Socket.io", "TypeORM"]}
     />
 </section>
-<section>
+<section class="merg">
     <ProjectTile
         projectImage={filesImage}
         name="GCloud"
-        link="https://files.gruzservices.com"
+        link="https://github.com/Stephen10121/FileStruct"
         description="Google drive knockoff."
         tags={["Svelte", "JavaScript", "Axios", "Express"]}
     />
 </section>
-<section>
+<section class="merg btom">
     <ProjectTile
         projectImage={fenceImage}
         name="Local Fence Co"
+        repo={false}
         link="https://thelocalfenceco.com"
         description="Contract Job. Fence company website."
         tags={["SvelteKit", "TypeScript", "Prisma", "Sqlite"]}
@@ -52,7 +53,6 @@
 </section>
 <!-- <SectionIntro /> -->
 <!-- <SectionIntro /> -->
-<Footer top="400%"/>
 <!-- <section>
     <img src={image} alt="Cool logo" />
     <h1>Welcome to SvelteKit</h1>
@@ -70,6 +70,14 @@
         flex-direction: column;
         padding: 0 10px;
         /* background-color: red; */
+    }
+
+    .merg {
+        margin-top: 300px;
+    }
+    
+    .btom {
+        margin-bottom: 100px;
     }
 
     h1 {

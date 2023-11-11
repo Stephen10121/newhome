@@ -4,6 +4,7 @@
     export let link: string;
     export let description: string;
     export let tags: string[] = [];
+    export let repo = true;
 </script>
 
 <div class="project">
@@ -13,7 +14,7 @@
         <div class="overflow">
             <div class="description2">
                 <p>{description}</p>
-                <a href={link} title="Visit Site" target="_blank">Visit Site</a>
+                <a href={link} title={repo ? "Github" : "Visit Site"} target="_blank">{repo ? "Visit Repository" : "Visit site"}</a>
             </div>
             <div class="stack2">
                 {#if tags.length}

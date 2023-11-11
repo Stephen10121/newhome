@@ -2,6 +2,8 @@
 	import { page } from "$app/stores";
 	import { onDestroy } from "svelte";
 	import { scrollPositionStore } from "../../function/store";
+    import linkedInImg from "../../assets/linkedin.svg";
+    import githubImg from "../../assets/github.svg";
 	import Scene from "../../components/Scene.svelte";
 
     let main: HTMLDivElement;
@@ -21,10 +23,9 @@
         scrollPositionStore.set(event.target.scrollTop as number);
     }
 
-    let accentColors = ["#51b5cc", "#7700ff", "#ffc400", "#00ff2a"];
     let currentAccent = data.accentColor;
     function accentChange() {
-        currentAccent = currentAccent < accentColors.length-1 ? currentAccent+1 : 0;
+        currentAccent = currentAccent < data.accentColorArray.length-1 ? currentAccent+1 : 0;
         const d = new Date();
         d.setTime(d.getTime() + (1000*24*60*60*1000));
         let expires = "expires="+ d.toUTCString();
@@ -43,6 +44,20 @@
             <li><a href="/">About</a></li>
             <li><a href="/projects">Projects</a></li>
             <li><a href="/contact">Contact</a></li>
+            <li>
+                <a class="icon" href="https://www.linkedin.com/in/stephen-gruzin-6aba31204/" target="_blank" title="My LinkedIn">
+                    <div>
+                        <img src={linkedInImg} alt="LinkedIn Icon" />
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="icon" href="https://github.com/Stephen10121" target="_blank" title="My Github">
+                    <div>
+                        <img src={githubImg} alt="Github Icon" />
+                    </div>
+                </a>
+            </li>
         </ul>
     </nav>
     <!-- <button on:click={() => showContactStore.set(true)}>Contact</button> -->
@@ -50,9 +65,9 @@
 
 <Scene {scrollPosition} />
 
-<main style="--accent-color: {accentColors[currentAccent]};">
+<main style="--accent-color: {data.accentColorArray[currentAccent]};">
     <section class="main-box">
-        <div bind:this={main} on:scroll={scroll}>
+        <div id="scroll-main" bind:this={main} on:scroll={scroll}>
             <slot />
         </div>
     </section>
@@ -85,7 +100,8 @@
 
     ul {
         display: flex;
-        width: 250px;
+        align-items: center;
+        width: 300px;
         justify-content: space-between;
         gap: 10px;
     }
@@ -129,24 +145,26 @@
         display: none;
     }
 
-    /* button {
-        border: 2px solid #F4FDFF;
-        border-radius: 4px;
-        background: none;
-        font-family: "Poppins", sans-serif;
-        color: #F4FDFF;
-        letter-spacing: 1px;
-        font-weight: 600;
-        padding: 7px 15px;
-        display: none;
-        cursor: pointer;
-    } */
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-    /* @media (min-width: 850px) {
-        .main-box div {
-            padding: 100px;
-        }
-    } */
+    .icon:hover {
+        filter: invert(0.5);
+    }
+
+    .icon div {
+        width: 25px;
+        height: 25px;
+    }
+
+    .icon img {
+        color: #ffffff;
+        width: 100%;
+        height: 100%;
+    }
 
     @media (min-width: 700px) {
         /* button {

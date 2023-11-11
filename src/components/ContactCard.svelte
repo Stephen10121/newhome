@@ -33,7 +33,7 @@
             <ConfettiExplosion />
         </div>
     {/if}
-    <h1>Give Me A Holler</h1>
+    <h1>Contact Me</h1>
     <label>
         {#if $errors.name}
             <p class="errorP">{$errors.name}</p>
