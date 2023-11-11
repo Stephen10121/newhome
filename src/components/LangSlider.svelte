@@ -29,6 +29,7 @@
         height: 20px;
         background-color: #000000;
         border: 1px solid var(--color);
+        padding: 1px;
         border-radius: 10px;
         overflow: hidden;
     }
