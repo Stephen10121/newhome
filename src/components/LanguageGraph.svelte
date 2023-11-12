@@ -11,6 +11,46 @@
 
     let observeTarget: HTMLDivElement;
     let show = true;
+    let proficiencyTimeline = {
+        "2020": {
+            Javascript: 10,
+            Arduino: 0,
+            TypeScript: 0,
+            Python: 0,
+            CSS: 20,
+            HTML: 30,
+            Go: 0
+        },
+        "2021": {
+            Javascript: 20,
+            Arduino: 20,
+            TypeScript: 0,
+            Python: 20,
+            CSS: 40,
+            HTML: 50,
+            Go: 0
+        },
+        "2022": {
+            Javascript: 60,
+            Arduino:40,
+            TypeScript: 50,
+            Python: 50,
+            CSS: 55,
+            HTML: 70,
+            Go: 20
+        },
+        "2023": {
+            Javascript: 90,
+            Arduino: 50,
+            TypeScript: 90,
+            Python: 95,
+            CSS: 70,
+            HTML: 95,
+            Go: 70
+        }
+    }
+    let option: "2020" | "2021" | "2022" | "2023"= "2023";
+    let options = Object.keys(proficiencyTimeline);
 
     onMount(() => {
         let observer = new IntersectionObserver((e) => show = e[0].isIntersecting);
@@ -22,14 +62,21 @@
     });
 </script>
 <section>
-    <h2>Language Graph</h2>
-    <LangSlider title="Javascript" src={javascriptIcon} link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" percentage={90} color="#f7df1e" {show} />
-    <LangSlider title="Arduino" src={arduinoIcon} link="https://www.arduino.cc/en/Guide" percentage={50} color="#199aa0" {show} delayMs={70} />
-    <LangSlider title="TypeScript" src={typescriptIcon} link="https://www.typescriptlang.org" percentage={90} color="#3178c6" {show} delayMs={140} />
-    <LangSlider title="Python" src={pythonIcon} link="https://www.python.org" percentage={95} color="#f2bb30" {show} delayMs={210} />
-    <LangSlider title="CSS" src={cssIcon} link="https://www.w3schools.com/css/" percentage={70} color="#2196f3" {show} delayMs={280} />
-    <LangSlider title="HTML" src={htmlIcon} link="https://www.w3schools.com/html/" percentage={95} color="#ff5722" {show} delayMs={350} />
-    <LangSlider title="Go" src={golangIcon} link="https://go.dev/" percentage={70} color="#00acd7" {show} delayMs={420} />
+    <div>
+        <h2>Language Graph</h2>
+        <select bind:value={option}>
+            {#each options as year}
+                <option value={year}>{year}</option>
+            {/each}
+        </select>
+    </div>
+    <LangSlider title="Javascript" src={javascriptIcon} link="https://www.youtube.com/watch?v=dQw4w9WgXcQ" percentage={proficiencyTimeline[option].Javascript} color="#f7df1e" {show} />
+    <LangSlider title="Arduino" src={arduinoIcon} link="https://www.arduino.cc/en/Guide" percentage={proficiencyTimeline[option].Arduino} color="#199aa0" {show} delayMs={70} />
+    <LangSlider title="TypeScript" src={typescriptIcon} link="https://www.typescriptlang.org" percentage={proficiencyTimeline[option].TypeScript} color="#3178c6" {show} delayMs={140} />
+    <LangSlider title="Python" src={pythonIcon} link="https://www.python.org" percentage={proficiencyTimeline[option].Python} color="#f2bb30" {show} delayMs={210} />
+    <LangSlider title="CSS" src={cssIcon} link="https://www.w3schools.com/css/" percentage={proficiencyTimeline[option].CSS} color="#2196f3" {show} delayMs={280} />
+    <LangSlider title="HTML" src={htmlIcon} link="https://www.w3schools.com/html/" percentage={proficiencyTimeline[option].HTML} color="#ff5722" {show} delayMs={350} />
+    <LangSlider title="Go" src={golangIcon} link="https://go.dev/" percentage={proficiencyTimeline[option].Go} color="#00acd7" {show} delayMs={420} />
     <div class="observer" bind:this={observeTarget}></div>
 </section>
 
@@ -42,6 +89,24 @@
         gap: 10px;
         justify-content: center;
         flex-direction: column;
+    }
+
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    select {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ffffff;
+        background: #00000000;
+        color: #ffffff;
+    }
+
+    select option {
+        background: #000000;
     }
 
     .observer {
