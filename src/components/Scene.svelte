@@ -1,8 +1,7 @@
 <script lang="ts">
-    import earthPicture from "../assets/earth2.png";
-    import spaceSuit from "../assets/spacesuit.png";
+    import earthPicture from "../assets/earth2.webp";
+    import spaceSuit from "../assets/spacesuit.webp";
 	import { rotateEarthDegrees } from "../function/store";
-	import SpaceStation from "./SpaceStation.svelte";
 	import TwinklyStars from "./TwinklyStars.svelte";
 
     let earthSection: HTMLElement;
