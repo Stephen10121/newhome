@@ -8,6 +8,7 @@
     import cssIcon from "../assets/css.png";
     import golangIcon from "../assets/go.svg";
 	import { onMount } from "svelte";
+	import { rotateEarthDegrees } from "../function/store";
 
     let observeTarget: HTMLDivElement;
     let show = true;
@@ -51,6 +52,10 @@
     }
     let option: "2020" | "2021" | "2022" | "2023"= "2023";
     let options = Object.keys(proficiencyTimeline);
+
+    function spinEarth() {
+        rotateEarthDegrees.update((prev) => prev+180);
+    }
 
     onMount(() => {
         let observer = new IntersectionObserver((e) => show = e[0].isIntersecting);

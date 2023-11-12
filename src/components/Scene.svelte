@@ -1,6 +1,7 @@
 <script lang="ts">
     import earthPicture from "../assets/earth2.png";
     import spaceSuit from "../assets/spacesuit.png";
+	import { rotateEarthDegrees } from "../function/store";
 	import SpaceStation from "./SpaceStation.svelte";
 	import TwinklyStars from "./TwinklyStars.svelte";
 
@@ -9,7 +10,7 @@
     let suit: HTMLElement;
 
     export let scrollPosition: number;
-    
+
     $: {
         if (earthSection && suitSection && suit) {
             earthSection.scrollTo(0, scrollPosition / 3);
@@ -24,7 +25,7 @@
     <TwinklyStars />
     <section class="earth" bind:this={earthSection}>
         <div class="space" />
-        <img src={earthPicture} alt="Earth" />
+        <img src={earthPicture} alt="Earth" style="--earth-rotate:{$rotateEarthDegrees}deg;" />
         <section style="min-height: 20%" />
     </section>
     <section class="suit" bind:this={suitSection}>
@@ -65,6 +66,11 @@
     }
 
     .earth img {width: 100%;}
+
+    .earth img {
+        transform: rotate(var(--earth-rotate));
+        transition: transform 1s linear;
+    }
 
     .suit {
         width: 100%;
