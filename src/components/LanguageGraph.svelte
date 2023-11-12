@@ -81,7 +81,7 @@
     <LangSlider title="Python" src={pythonIcon} link="https://www.python.org" percentage={proficiencyTimeline[option].Python} color="#f2bb30" {show} delayMs={210} />
     <LangSlider title="CSS" src={cssIcon} link="https://www.w3schools.com/css/" percentage={proficiencyTimeline[option].CSS} color="#2196f3" {show} delayMs={280} />
     <LangSlider title="HTML" src={htmlIcon} link="https://www.w3schools.com/html/" percentage={proficiencyTimeline[option].HTML} color="#ff5722" {show} delayMs={350} />
-    <LangSlider title="Go" src={golangIcon} link="https://go.dev/" percentage={proficiencyTimeline[option].Go} color="#00acd7" {show} delayMs={420} />
+    <LangSlider title="Go" src={golangIcon} link="https://go.dev/" percentage={proficiencyTimeline[option].Go} color="#00acd7" {show} delayMs={420} on:mousedown={spinEarth} />
     <div class="observer" bind:this={observeTarget}></div>
 </section>
 

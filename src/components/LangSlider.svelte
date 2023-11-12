@@ -8,7 +8,7 @@
     export let delayMs = 0;
 </script>
 
-<div class="slider" title="{percentage}% proficient in {title}" style="--color:{color};">
+<div class="slider" title="{percentage}% proficient in {title}" style="--color:{color};" on:mousedown>
     <a href={link} target="_blank">
         <img src={src} alt={title}>
     </a>
