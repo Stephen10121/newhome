@@ -1,17 +1,16 @@
 <script lang="ts">
-	import LangSlider from "./LangSlider.svelte";
-    import javascriptIcon from "../assets/javascript.webp";
-    import arduinoIcon from "../assets/aruino.webp";
-    import typescriptIcon from "../assets/typescript.png";
-    import pythonIcon from "../assets/python.webp";
-    import htmlIcon from "../assets/html.png";
-    import cssIcon from "../assets/css.png";
-    import golangIcon from "../assets/go.svg";
-	import { onMount } from "svelte";
 	import { rotateEarthDegrees } from "../function/store";
+    import javascriptIcon from "../assets/javascript.webp";
+    import typescriptIcon from "../assets/typescript.png";
+    import arduinoIcon from "../assets/aruino.webp";
+    import pythonIcon from "../assets/python.webp";
+	import LangSlider from "./LangSlider.svelte";
+    import htmlIcon from "../assets/html.png";
+    import golangIcon from "../assets/go.svg";
+    import cssIcon from "../assets/css.png";
+	import { onMount } from "svelte";
 
     let observeTarget: HTMLDivElement;
-    let show = true;
     let proficiencyTimeline = {
         "2020": {
             Javascript: 10,
@@ -52,10 +51,9 @@
     }
     let option: "2020" | "2021" | "2022" | "2023"= "2023";
     let options = Object.keys(proficiencyTimeline);
-
-    function spinEarth() {
-        rotateEarthDegrees.update((prev) => prev+180);
-    }
+    let show = true;
+    
+    function spinEarth() {rotateEarthDegrees.update((prev) => prev+180)}
 
     onMount(() => {
         let observer = new IntersectionObserver((e) => show = e[0].isIntersecting);
@@ -66,8 +64,9 @@
         }
     });
 </script>
+
 <section>
-    <div>
+    <div class="information">
         <h2>Language Graph</h2>
         <select bind:value={option} title="Check my proficiency over the years">
             {#each options as year}
@@ -82,7 +81,7 @@
     <LangSlider title="CSS" src={cssIcon} link="https://www.w3schools.com/css/" percentage={proficiencyTimeline[option].CSS} color="#2196f3" {show} delayMs={280} />
     <LangSlider title="HTML" src={htmlIcon} link="https://www.w3schools.com/html/" percentage={proficiencyTimeline[option].HTML} color="#ff5722" {show} delayMs={350} />
     <LangSlider title="Go" src={golangIcon} link="https://go.dev/" percentage={proficiencyTimeline[option].Go} color="#00acd7" {show} delayMs={420} on:mousedown={spinEarth} />
-    <div class="observer" bind:this={observeTarget}></div>
+    <div class="observer" bind:this={observeTarget} />
 </section>
 
 <style>
@@ -96,7 +95,7 @@
         flex-direction: column;
     }
 
-    div {
+    .information {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -113,11 +112,6 @@
 
     select option {
         background: #000000;
-    }
-
-    .observer {
-        width: 1px;
-        height: 1px;
     }
 
     h2 {
