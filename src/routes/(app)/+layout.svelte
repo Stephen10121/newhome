@@ -44,7 +44,7 @@
             <li><a href="/">About</a></li>
             <li><a href="/projects">Projects</a></li>
             <li><a href="/contact">Contact</a></li>
-            <li>
+            <li class="left-margin">
                 <a class="icon" href="https://www.linkedin.com/in/stephen-gruzin-6aba31204/" target="_blank" title="My LinkedIn">
                     <div>
                         <img src={linkedInImg} alt="LinkedIn Icon" />
@@ -108,6 +108,10 @@
 
     li {
         list-style: none;
+    }
+
+    li.left-margin {
+        margin-left: 10px;
     }
     
     li a {
