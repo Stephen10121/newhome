@@ -64,7 +64,7 @@
 <section>
     <div>
         <h2>Language Graph</h2>
-        <select bind:value={option}>
+        <select bind:value={option} title="Check my proficiency over the years">
             {#each options as year}
                 <option value={year}>{year}</option>
             {/each}
@@ -95,6 +95,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 10px;
     }
 
     select {
