@@ -14,6 +14,9 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			"@/*": "./src/lib/*",
+		},
+		csrf: {
+			trustedOrigins: ["https://stephengruzin.dev", "https://www.stephengruzin.dev"]
 		}
 	}
 };
