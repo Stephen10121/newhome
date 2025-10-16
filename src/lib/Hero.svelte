@@ -26,7 +26,7 @@
         <Button size="lg" onclick={() => scrollToSection("projects")} class="min-w-[160px]">
         View Projects
         </Button>
-        <Button size="lg" variant="outline" onclick={() => scrollToSection("contact")} class="min-w-[160px]">
+        <Button size="lg" variant="outline" onclick={() => scrollToSection("contact")} class="min-w-[160px] hover:text-foreground">
         Get in Touch
         </Button>
     </div>
