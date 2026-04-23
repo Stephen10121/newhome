@@ -13,7 +13,7 @@
                 <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <AtSign class="text-primary w-7 h-7 text-sm group-hover/link:translate-x-1 transition-transform" />
                 </div>
-                <h4 class="font-headline font-bold text-xl mb-1">Email</h4>
+                <p class="font-headline font-bold text-xl mb-1">Email</p>
                 <p class="text-on-surface-variant">me@stephengruzin.dev</p>
             </a>
 
@@ -22,7 +22,7 @@
                 <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <SquareTerminal class="text-primary w-7 h-7 text-sm group-hover/link:translate-x-1 transition-transform" />
                 </div>
-                <h4 class="font-headline font-bold text-xl mb-1">GitHub</h4>
+                <p class="font-headline font-bold text-xl mb-1">GitHub</p>
                 <p class="text-on-surface-variant">@Stephen10121</p>
             </a>
 
@@ -31,7 +31,7 @@
                 <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <UserRoundSearch class="text-primary w-7 h-7 text-sm group-hover/link:translate-x-1 transition-transform" />
                 </div>
-                <h4 class="font-headline font-bold text-xl mb-1">LinkedIn</h4>
+                <p class="font-headline font-bold text-xl mb-1">LinkedIn</p>
                 <p class="text-on-surface-variant">Stephen Gruzin</p>
             </a>
         </div>
