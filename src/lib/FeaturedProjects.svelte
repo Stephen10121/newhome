@@ -20,7 +20,11 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
             <!-- Project 1 -->
             <div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-high glass-card min-h-112.5">
-                <img alt="svelte-windows" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700" data-alt="code editor interface with vibrant neon syntax highlighting showing complex system architecture" src={dark1}/>
+                <img
+                    src={dark1}
+                    alt="Infosections themed background"
+                    class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700"
+                />
                 <div class="absolute inset-0 bg-linear-to-t from-surface-container-highest via-transparent to-transparent opacity-90"></div>
                 <div class="relative h-full flex flex-col justify-end p-10">
                     <div class="flex gap-2 mb-4">
@@ -67,7 +71,11 @@
             
             <!-- Project 3 -->
             <div class="md:col-span-12 group relative overflow-hidden rounded-xl bg-surface-container-high glass-card min-h-100">
-                <img alt="MKB Renovations" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700" src={dark2}/>
+                <img
+                    src={dark2}
+                    alt="MKB Renovations"
+                    class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700"
+                />
                 <div class="absolute inset-0 bg-linear-to-r from-surface-container-highest via-surface-container-highest/60 to-transparent opacity-90"></div>
                 <div class="relative h-full flex flex-col justify-center p-10">
                     <div class="flex gap-2 mb-4">
@@ -93,7 +101,12 @@
 
             <!-- Project 4 -->
             <div class="md:col-span-12 group relative overflow-hidden rounded-xl bg-surface-container-high glass-card min-h-100">
-                <img alt="MKB Renovations" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700" src={darkfence}/>
+                <!-- <img alt="MKB Renovations" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700" src={darkfence}/> -->
+                <img
+                    src={darkfence}
+                    alt="Local Fence Co"
+                    class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700"
+                />
                 <div class="absolute inset-0 bg-linear-to-r from-surface-container-highest via-surface-container-highest/60 to-transparent opacity-90"></div>
                 <div class="relative h-full flex flex-col justify-center p-10">
                     <div class="flex gap-2 mb-4">
