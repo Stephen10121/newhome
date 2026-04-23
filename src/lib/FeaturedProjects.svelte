@@ -1,8 +1,8 @@
 <script>
 	import { SquareArrowOutUpRight, SquareTerminal } from "@lucide/svelte";
-    import dark1 from "$lib/assets/dark1.jpg";
-    import dark2 from "$lib/assets/dark2.jpg";
-    import darkfence from "$lib/assets/darkfence.jpg";
+    import dark1 from "$lib/assets/dark1.webp";
+    import dark2 from "$lib/assets/dark2.webp";
+    import darkfence from "$lib/assets/darkfence.webp";
 </script>
 <section class="py-32 px-8 md:px-24 relative z-10" id="work">
     <div class="max-w-360 mx-auto">
