@@ -1,21 +1,32 @@
-FROM node:slim AS builder
+# 1. Base image
+FROM oven/bun:1 AS base
 WORKDIR /app
-COPY package*.json .
 
-RUN npm ci
+# 2. Install dependencies
+FROM base AS install
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
+
+# 3. Build SvelteKit
+FROM install AS build
 COPY . .
-RUN npm run build
-RUN npm prune --production
+RUN bun run build
 
-FROM node:slim
+# 4. Production image
+FROM oven/bun:1 AS release
 WORKDIR /app
-COPY --from=builder /app/build build/
-COPY --from=builder /app/node_modules node_modules/
+
+# Copy production node_modules
+COPY --from=install /app/node_modules ./node_modules
+
+# Copy built SvelteKit output
+COPY --from=build /app/build ./build
+COPY --from=build /app/.svelte-kit ./.svelte-kit
+# COPY --from=build /app/.output ./.output
 COPY package.json .
-EXPOSE 3011
 
 ENV NODE_ENV=production
-ENV PORT=3011
-ENV ORIGIN=http://localhost:3011
+EXPOSE 5173
 
-CMD [ "npm", "run", "production" ]
+# SvelteKit Bun adapter entrypoint
+CMD ["bun", "build/index.js"]
