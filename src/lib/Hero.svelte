@@ -19,10 +19,10 @@
             </p>
         </div>
         <div class="flex flex-wrap gap-6 justify-center">
-            <button onclick={() => scrollToSection("work")} class="cursor-pointer bg-[#5df7dc] text-black px-10 py-4 rounded-lg font-headline font-bold text-lg tracking-tight transition-all duration-300 hover:shadow-[0_0_20px_rgba(125,255,229,0.3)]">
+            <button onclick={() => scrollToSection("work")} class="sm:w-fit w-full cursor-pointer bg-[#5df7dc] text-black px-10 py-4 rounded-lg font-headline font-bold text-lg tracking-tight transition-all duration-300 hover:shadow-[0_0_20px_rgba(125,255,229,0.3)]">
                 View Projects
             </button>
-            <button onclick={() => contactDialogOpen.set(true)} class="border backdrop-blur-md px-10 py-4 rounded-lg font-headline font-bold text-lg tracking-tight transition-all duration-300 hover:opacity-80 cursor-pointer">Get in Touch</button>
+            <button onclick={() => contactDialogOpen.set(true)} class="sm:w-fit w-full border backdrop-blur-md px-10 py-4 rounded-lg font-headline font-bold text-lg tracking-tight transition-all duration-300 hover:opacity-80 cursor-pointer">Get in Touch</button>
         </div>
     </div>
 </section>
